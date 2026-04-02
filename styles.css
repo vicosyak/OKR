@@ -1,0 +1,83 @@
+body {
+    background-color: #fdf5e6; 
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.5; 
+    color: #333;
+    margin: 20px;
+}
+
+h1, h2, h3 {
+    color: #8b4513; 
+    text-align: center; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#king-genre {
+    border-left: 5px solid #8b0000;
+    padding-left: 15px;
+    font-style: italic;
+}
+
+.nav-link > a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #2e8b57; 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin: 20px 0;
+    background-color: #fff;
+}
+
+th, td {
+    border: 1px solid #d2b48c;
+    padding: 12px; 
+    text-align: left;
+}
+
+th {
+    background-color: #d2b48c; 
+    color: white;
+}
+
+ul + ol {
+    margin: 15px 40px;
+    padding: 10px;
+    background-color: #f9f4e8;
+    border-radius: 8px;
+}
+
+dl {
+    border: 1px dashed #8b4513;
+    padding: 15px;
+    margin-top: 10px;
+}
+
+dt {
+    font-weight: bold;
+    color: #a52a2a;
+}
+
+a {
+    color: #8b0000;
+    text-decoration: underline !important;
+}
+
+/*сусідній селектор */
+section h2 + p {
+    color:brown
+}
+
+/* контекстний селектор */
+#detective b {
+    font-size: 20px;
+}
+
+/* дочірній селектор */
+#scifi > p {
+    color: blueviolet;
+}
