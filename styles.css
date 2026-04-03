@@ -62,11 +62,6 @@ dt {
     color: #a52a2a;
 }
 
-a {
-    color: #8b0000;
-    text-decoration: underline !important;
-}
-
 /*сусідній селектор */
 section h2 + p {
     color:brown
@@ -80,4 +75,33 @@ section h2 + p {
 /* дочірній селектор */
 #scifi > p {
     color: blueviolet;
+}
+
+.classics-bestseller, .scifi-bestseller, .romance-bestseller {
+    float: right;
+    position: relative;
+    top: 20px;
+    left: 30px;
+    width: 250px; 
+    margin: 10px 0 20px 30px; 
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #d2b48c;
+    border-radius: 8px;
+    text-align: center;
+}
+
+a:link { color: #8b4513; text-decoration: none; }
+a:visited { color: #5d3a1a; }
+a:hover { color: #d63384; text-decoration: underline; }
+a:active { color: #ff0000; }
+
+ol li:first-child {
+    font-weight: bold;
+    color: #2e8b57;
+}
+
+section h2:before {
+    content: "💕";
+    font-size: 0.8px;
 }
