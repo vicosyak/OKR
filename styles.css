@@ -71,7 +71,7 @@ section h2 + p {
 #scifi > p {
     color: blueviolet;
 }
-
+    
 span {
     font-style: italic;
 }
@@ -102,8 +102,6 @@ span {
 
 .romance-bestseller {
     position: static; 
-    top: 20px;
-    left: 10px; 
     width: 350px;
     margin: 30px auto;
     padding: 20px;

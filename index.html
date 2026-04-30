@@ -11,10 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles.css">
+
+
 </head>
 
 <body> 
-    <section>
+    <section id="intro">
         <h1>Вітаємо у нашому «Книжковому просторі»!</h1>
         
         <p>
@@ -37,7 +39,7 @@
 
     <hr>
 
-    <section>
+    <section id="main-content">
         <h2 id="top">Книга місяця та активності</h2>
         
         <p>
@@ -61,5 +63,39 @@
             </a>
         </p>
     </section>
+
+    <div style="margin: 20px; text-align: center; border-top: 1px solid #ccc; padding-top: 20px;">
+        <button onclick="userDialog()">Підібрати жанр</button>
+        <button onclick="compareTitles('Процес', 'Сяйво')">Порівняти назви</button>
+        <button onclick="checkExternal()">До Britannica</button>
+    </div>
+
+    <script>
+        document.write("<p style='text-align:center'>Сторінку згенеровано за допомогою JS</p>");
+    </script>
+
+    <script>
+        alert("Вітаємо у нашому літературному просторі!");
+        let userName = prompt("Як нам до вас звертатися?", "Книголюб");
+        
+        document.body.style.backgroundColor = "#fdf5e6"; 
+        setTimeout(() => { 
+            document.body.style.backgroundColor = ""; 
+        }, 30000);
+
+        function checkExternal() {
+            if(confirm("Перейти на сайт Britannica?")) {
+                location.href = "https://www.britannica.com/";
+            }
+        }
+    </script>
+
+    <script src="script.js"></script>
+
+    <script>
+        window.onload = function() {
+            manageDOM();
+        };
+    </script>
 </body>
-</html>
+</html>     
