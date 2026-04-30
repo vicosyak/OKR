@@ -76,3 +76,93 @@ function manageDOM() {
 
     showDeveloperInfo("Крившенко", "Вікторія");
 }
+
+
+// LAB 7
+function handleTableClick(event) {
+    console.log('Клік по таблиці через атрибут:', event.target.textContent);
+    event.target.classList.toggle('highlighted');
+    updateInfo(`Клікнуто на: ${event.target.textContent}`);
+}
+
+const table = document.getElementById('bookTable');
+
+function handleTableMouseOver(event) {
+    console.log('Наведення миші на таблицю');
+    event.currentTarget.style.border = '3px solid #FF4500';
+}
+
+function handleTableMouseOut(event) {
+    console.log('Миша покинула таблицю');
+    event.currentTarget.style.border = '1px solid black';
+}
+
+table.addEventListener('mouseover', handleTableMouseOver);
+table.addEventListener('mouseout', handleTableMouseOut);
+
+const tableEventHandler = {
+    handleEvent(event) {
+        console.log('Обробник-обєкт спрацював на:', event.currentTarget);
+        updateInfo(`Елемент: ${event.currentTarget.tagName} (ID: ${event.currentTarget.id || 'немає'})`);
+    }
+};
+
+table.addEventListener('click', tableEventHandler);
+
+const mouseMoveHandler = function(event) {
+    console.log('Рух миші по таблиці');
+};
+
+table.addEventListener('mousemove', mouseMoveHandler);
+setTimeout(() => {
+    table.removeEventListener('mousemove', mouseMoveHandler);
+    console.log('Обробник mousemove видалено');
+}, 5000);
+
+const genreList = document.getElementById('genreList');
+genreList.onclick = function(event) {
+    if (event.target.tagName === 'LI') {
+        genreList.querySelectorAll('li').forEach(li => li.classList.remove('highlighted'));
+        event.target.classList.add('highlighted');
+        updateInfo(`Вибрано жанр: ${event.target.dataset.genre}`);
+    }
+};
+
+const menu = document.getElementById('menu');
+menu.addEventListener('click', function(event) {
+    if (event.target.tagName === 'BUTTON') {
+        const action = event.target.dataset.action;
+        const behaviors = {
+            showInfo: () => updateInfo('Інформація про колекцію оновлена!'),
+            highlightAll: () => {
+                genreList.querySelectorAll('li').forEach(li => li.classList.add('highlighted'));
+                updateInfo('Усі жанри підсвічені!');
+            },
+            reset: () => {
+                genreList.querySelectorAll('li').forEach(li => li.classList.remove('highlighted'));
+                document.querySelectorAll('th').forEach(th => th.classList.remove('highlighted'));
+                updateInfo('Все скинуто!');
+            },
+            toggleImages: () => {
+                document.querySelectorAll('.book-cover').forEach(img => {
+                    img.classList.toggle('hidden');
+                });
+                updateInfo('Обкладинки переключені!');
+            }
+        };
+        
+        if (behaviors[action]) {
+            behaviors[action]();
+        }
+    }
+});
+
+function updateInfo(message) {
+    const infoPanel = document.getElementById('infoPanel');
+    infoPanel.innerHTML = `<p>${message}</p><small>Час: ${new Date().toLocaleTimeString()}</small>`;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateInfo('Сторінка завантажена. Спробуйте клікнути на елементи!');
+    console.log('Всі обробники подій налаштовані');
+});

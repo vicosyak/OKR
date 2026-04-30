@@ -131,3 +131,72 @@ section h2:before {
     display: table;
     clear: both;
 }
+.menu {
+    text-align: center;
+    margin: 20px 0;
+    padding: 15px;
+    background: #F5DEB3;
+    border-radius: 10px;
+}
+
+.menu button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background: #D2B48C;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.menu button:hover {
+    background: #DEB887;
+}
+
+.genre-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 400px;
+    background: #FFF8DC;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.genre-list li {
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.genre-list li:hover {
+    background: #FFE4B5;
+}
+
+.genre-list li.highlighted {
+    background: #FFD700 !important;
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+.info-panel {
+    margin: 20px auto;
+    max-width: 80%;
+    padding: 15px;
+    background: #F0F8FF;
+    border: 2px solid #B0C4DE;
+    border-radius: 10px;
+    text-align: center;
+}
+
+th.highlighted {
+    background-color: #FFD700 !important;
+    cursor: pointer;
+}
+
+.book-cover.hidden {
+    opacity: 0.3;
+    filter: grayscale(100%);
+}

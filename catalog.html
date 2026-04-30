@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -6,24 +5,41 @@
     <title>Каталог — Книжковий простір</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body bgcolor="#FDF5E6"> <h1>Наша колекція</h1>
+<body bgcolor="#FDF5E6"> 
+    <h1>Наша колекція</h1>
     <p>Тут зібрані примірники, які доступні для огляду та бронювання у нашому просторі.</p>
 
-    <table border="1" width="80%" align="center">
+    <!-- Меню кнопок -->
+    <div id="menu" class="menu">
+        <button data-action="showInfo">Інфо</button>
+        <button data-action="highlightAll">Підсвітити все</button>
+        <button data-action="reset">Скинути</button>
+        <button data-action="toggleImages">Приховати/Показати обкладинки</button>
+    </div>
+
+    <!-- Список жанрів для демонстрації -->
+    <ul id="genreList" class="genre-list">
+        <li data-genre="classic">Класика</li>
+        <li data-genre="scifi">Фантастика</li>
+        <li data-genre="detective">Детективи</li>
+        <li data-genre="romance">Романи</li>
+    </ul>
+
+    <table border="1" width="80%" align="center" id="bookTable">
         <caption><h3>Вітрина обраних видань</h3></caption>
         
         <tr bgcolor="#D2B48C">
-            <th>Класика</th>
-            <th>Фантастика</th>
-            <th>Детективи</th>
-            <th>Романи</th>
+            <th onclick="handleTableClick(event)">Класика</th>
+            <th onclick="handleTableClick(event)">Фантастика</th>
+            <th onclick="handleTableClick(event)">Детективи</th>
+            <th onclick="handleTableClick(event)">Романи</th>
         </tr>
 
         <tr align="center">
-            <td><img src="img/kafka.jpg" width="120" height="180" alt="Книга 1"></td>
-            <td><img src="img/chetverte-krilo.jpg" width="120" height="180" alt="Книга 2"></td>
-            <td><img src="img/puaro.jpg" width="120" height="180" alt="Книга 3"></td>
-            <td><img src="img/kistku_sertsya.webp" width="120" height="180" alt="Книга 4"></td>
+            <td><img src="img/kafka.jpg" width="120" height="180" alt="Книга 1" class="book-cover"></td>
+            <td><img src="img/chetverte-krilo.jpg" width="120" height="180" alt="Книга 2" class="book-cover"></td>
+            <td><img src="img/puaro.jpg" width="120" height="180" alt="Книга 3" class="book-cover"></td>
+            <td><img src="img/kistku_sertsya.webp" width="120" height="180" alt="Книга 4" class="book-cover"></td>
         </tr>
 
         <tr align="center">
@@ -41,9 +57,14 @@
         </tr>
     </table>
 
+    <div id="infoPanel" class="info-panel">
+        <p>Клікніть на заголовки таблиці або елементи списку для взаємодії!</p>
+    </div>
+
     <p align="center">
         <a href="index.html" style="color: #2E8B57;">Повернутися на головну</a>
     </p>
 
+    <script src="script.js"></script>
 </body>
 </html>
