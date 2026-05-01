@@ -200,3 +200,116 @@ th.highlighted {
     opacity: 0.3;
     filter: grayscale(100%);
 }
+
+.interactive {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.draggable {
+    cursor: grab;
+    user-select: none;
+}
+
+.draggable:active { cursor: grabbing; }
+
+.drop-zone {
+    border: 2px dashed #ccc;
+    min-height: 80px;
+    padding: 20px;
+    margin: 10px;
+    transition: all 0.3s;
+}
+
+.drop-zone:hover {
+    background: #f0f8ff;
+    border-color: #007bff;
+}
+
+.dragging-ghost {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3) !important;
+}
+
+/* 🆕 Drag & Drop Анімація */
+.dragging-ghost {
+    animation: ghostFloat 0.6s ease-in-out infinite alternate;
+    filter: drop-shadow(0 8px 20px rgba(255, 107, 53, 0.5));
+}
+
+@keyframes ghostFloat {
+    0% { 
+        transform: translateY(0px) rotate(5deg) scale(1.02);
+        box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
+    }
+    100% { 
+        transform: translateY(-4px) rotate(-5deg) scale(1.05);
+        box-shadow: 0 12px 30px rgba(255, 107, 53, 0.6);
+    }
+}
+
+/* 🆕 Зони Drop з ефектами */
+.drop-zone {
+    min-height: 60px;
+    padding: 15px;
+    border: 2px dashed #ccc;
+    border-radius: 12px;
+    margin: 10px 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.drop-zone.drag-over {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%) !important;
+    transform: scale(1.05) !important;
+    border-color: #FF6B35 !important;
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3) !important;
+}
+
+/* 🆕 Перетягуваний елемент */
+.draggable {
+    user-select: none;
+    cursor: grab;
+    transition: all 0.2s ease;
+    padding: 12px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #f4da65 0%, #b6bc43 100%);
+    color: white;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.draggable:active {
+    cursor: grabbing !important;
+    transform: scale(0.95) !important;
+    opacity: 0.7 !important;
+}
+
+/* 🆕 Плавний перехід після Drop */
+.draggable.drop-success {
+    animation: successBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes successBounce {
+    0% { transform: scale(0.3) rotate(-180deg); opacity: 0; }
+    50% { transform: scale(1.2) rotate(20deg); }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* 🆕 Info Panel покращений */
+#infoPanel {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #f4da65 0%, #b6bc43  100%);
+    color: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+}
+
+#infoPanel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
